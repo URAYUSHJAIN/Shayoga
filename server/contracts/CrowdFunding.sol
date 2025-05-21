@@ -2,6 +2,9 @@
 pragma solidity ^0.8.9;
 
 contract CrowdFunding {
+    // Add this event for better real-time tracking
+    event DonationMade(uint256 indexed campaignId, address indexed donor, uint256 amount);
+    
     struct Campaign {
         uint256 id;
         address owner;
@@ -51,11 +54,20 @@ contract CrowdFunding {
         (bool sent, ) = payable(campaign.owner).call{value: amount}("");
         if (sent) {
             campaign.amountcollected += amount;
+            // Emit the donation event
+            emit DonationMade(_id, msg.sender, amount);
         }
     }
 
-    function getDonators(uint256 _id) public view returns (address[] memory) {
-        return campaigns[_id].donators;
+    // UPDATED: Return both donator addresses and donation amounts
+    function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory) {
+        Campaign storage campaign = campaigns[_id];
+        return (campaign.donators, campaign.donations);
+    }
+
+    // Also add a helper function to get donor count
+    function getDonatorCount(uint256 _id) public view returns (uint256) {
+        return campaigns[_id].donators.length;
     }
 
     function getCampaigns() public view returns (

@@ -68,9 +68,9 @@ const CreateCampaign = () => {
   };
 
   return (
-    <div className="bg-[#1c1c24] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+    <div className="flex justify-center items-center flex-col sm:p-10 p-4">
       {isLoading && <Loader />}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]">
+      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] ">
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-white">
           Start a Campaign
         </h1>
@@ -78,12 +78,12 @@ const CreateCampaign = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="w-full mt-[65px] flex flex-col gap-[30px]"
+        className="w-full mt-[40px] flex flex-col gap-[30px]"
       >
         <div className="flex flex-wrap gap-[40px]">
           <FormField
             labelName="Your Name *"
-            placeholder="John Doe"
+            placeholder="Ayush Jain"
             inputType="text"
             value={form.name}
             handleChange={(e) => handleFormFieldChange("name", e)}
@@ -105,7 +105,7 @@ const CreateCampaign = () => {
           handleChange={(e) => handleFormFieldChange("description", e)}
         />
 
-        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+        <div className="w-full flex justify-start items-center p-4 bg-gradient-to-r from-[#8c6dfd] to-[#7c5dfd] h-[100px] rounded-[10px]">
           <img
             src={money}
             alt="money"
@@ -141,11 +141,11 @@ const CreateCampaign = () => {
           handleChange={(e) => handleFormFieldChange("image", e)}
         />
 
-        <div className="flex justify-center items-center mt-[40px]">
+        <div className="flex justify-center items-center mt-[30px]">
           <CustomButton
             btnType="submit"
             title="Submit new campaign"
-            styles="bg-[#1dc071]"
+            styles="bg-gradient-to-r from-[#8c6dfd] to-[#1dc071] hover:opacity-90 transition-all duration-300"
           />
         </div>
       </form>
