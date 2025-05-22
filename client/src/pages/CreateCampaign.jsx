@@ -18,6 +18,7 @@ const CreateCampaign = () => {
     target: "",
     deadline: "",
     image: "",
+    pdf: "", // <-- Add this line
   });
 
   const handleFormFieldChange = (fieldName, e) => {
@@ -139,6 +140,14 @@ const CreateCampaign = () => {
           inputType="url"
           value={form.image}
           handleChange={(e) => handleFormFieldChange("image", e)}
+        />
+
+        <FormField
+          labelName="Proof PDF (URL)"
+          placeholder="Paste a link to your PDF proof (optional)"
+          inputType="url"
+          value={form.pdf}
+          handleChange={(e) => handleFormFieldChange("pdf", e)}
         />
 
         <div className="flex justify-center items-center mt-[30px]">

@@ -271,6 +271,8 @@ const CampaignDetails = () => {
     totalDonations: totalDonations,
   });
 
+  console.log("CampaignDetails state:", state);
+
   return (
     <div className="container mx-auto px-4 py-8">
       {isLoading && <Loader />}
@@ -413,6 +415,23 @@ const CampaignDetails = () => {
             </p>
           </div>
 
+          {/* PDF Proof Section */}
+          {/* {(state.pdf || "https://example.com/proof.pdf") && (
+            <div className="bg-[#1c1c24] rounded-xl p-6 mb-6 transform transition-all duration-300 hover:shadow-[#3a3a43]/30 hover:shadow-lg">
+              <h4 className="font-epilogue font-semibold text-lg text-white">
+                PROOF DOCUMENT
+              </h4>
+              <a
+                href={state.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block font-epilogue text-[#4acd8d] underline break-all"
+              >
+                View PDF Proof
+              </a>
+            </div>
+          )} */}
+
           {/* Supporters Section
           <div className="bg-[#1c1c24] rounded-xl p-6 transform transition-all duration-300 hover:shadow-[#3a3a43]/30 hover:shadow-lg">
             <h4 className="font-epilogue font-semibold text-lg text-white">
@@ -546,8 +565,48 @@ const CampaignDetails = () => {
                   handleClick={() => navigate("/")}
                 />
               </div>
+
+              {/* PDF Proof Section as a square card */}
+              {state.pdf && (
+                <div
+                  className="bg-[#1c1c24] rounded-xl mt-6 flex flex-col justify-center items-center shadow-lg"
+                  style={{ width: "100%", minHeight: "200px", aspectRatio: "1/1" }}
+                >
+                  <h4 className="font-epilogue font-semibold text-lg text-white mb-4">
+                    PROOF DOCUMENT
+                  </h4>
+                  <a
+                    href={state.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-epilogue text-[#4acd8d] underline break-all"
+                  >
+                    View PDF Proof
+                  </a>
+                </div>
+              )}
             </div>
           </div>
+{/* 
+          PDF Proof Section as a square card
+          {state.pdf && (
+            <div
+              className="bg-[#1c1c24] rounded-xl mt-6 flex flex-col justify-center items-center shadow-lg"
+              style={{ width: "100%", minHeight: "200px", aspectRatio: "1/1" }}
+            >
+              <h4 className="font-epilogue font-semibold text-lg text-white mb-4">
+                PROOF DOCUMENT
+              </h4>
+              <a
+                href={state.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-epilogue text-[#4acd8d] underline break-all"
+              >
+                View PDF Proof
+              </a>
+            </div>
+          )} */}
         </div>
       </div>
     </div>

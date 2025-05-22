@@ -25,3 +25,20 @@ export const checkIfImage = (url, callback) => {
   img.onload = () => callback(true);
   img.onerror = () => callback(false);
 };
+
+// Dummy implementation for checkIfMatchingActive
+// Replace with real logic as needed (e.g., fetch from API or contract)
+export const checkIfMatchingActive = async (campaignId) => {
+  // Example: always return inactive, multiplier 1
+  // You can replace this with actual logic (API call, contract read, etc.)
+  return {
+    isActive: false,
+    multiplier: 1,
+  };
+};
+
+// Simple notifyUser implementation
+// You can replace this with a toast library or custom UI
+export function notifyUser(message) {
+  window.alert(message);
+}
